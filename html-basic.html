@@ -14,17 +14,17 @@
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus voluptate nihil dignissimos! Totam, quae. Laudantium impedit vel officia harum debitis ullam reiciendis, itaque ducimus fugiat dolorem quis. Explicabo, non eum.</p>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, quasi?</p>
   <a href="https://www.jd.com/" target="_blank">在新窗口打开京东</a>
-  <a href="mailto:xxxxx@qq.com">点我发邮件</a>
+  <a href="mailto:3129005948@qq.com">点我发邮件</a>
   <a href="#1">跳到页面底部</a>
-  <a href="file:///C:/Users/huang/Desktop/%E4%BD%9C%E4%B8%9A/Untitled-1.html" download="">点我下载文件</a>
+  <a href="ma" download="cat.jpg">点我下载文件</a>
   <div>
-    <img src="https://drscdn.500px.org/photo/229389427/m%3D1170/v2?user_id=7012987&webp=true&sig=196fa0c161aa562478d08571764872f7d69a346c3c0b2e12aa00e2c6414eb28b" alt="图片" height="200px" width="200px">
+    <img src="mao/cat.jpg" alt="图片" height="200px" width="200px">
   </div>
   <hr>
   <hr>
   <div><marquee >piao</marquee></div>
   <p><em>这几种强调</em><b> 有什么</b><strong> 区别？</strong><u>这个？</u><i>这个？</i></p>
-  <!-- 这段注释需要出现在页面里面 -->
+  &lt;!-- 这段注释需要出现在页面里面 -->
   <pre>
     function a() {
       return 8
@@ -44,20 +44,80 @@
   <ul><li>大学</li></ul>
   <hr>
   <dl>
-    <dd rigt>班级
-      <dt>三年二班</dt>
-    </dd>
-    <dd>老师
-      <dt>张老师</dt>
-      <dt>李老师</dt>
-      <dt>王老师</dt></dd>
-    <dd>学生
-      <dt>小明</dt>
-      <dt>豆豆</dt>
-    </dd>
+    <dt rigt>班级
+      <dd>三年二班</dd>
+    </dt>
+    <dt>老师
+      <dd>张老师</dd>
+      <dd>李老师</dd>
+      <dd>王老师</dd></dt>
+    <dt>学生
+      <dd>小明</dd>
+      <dd>豆豆</dd>
+    </dt>
   </dl>
   <hr>
-  <p><em>Google搜索</em></p>
+  <form target="_blank" action="https://www.google.com.hk/search" >
+  <label for="sousuo">
+    <h2>Googel搜索</h2>
+    <br></label>
+  <input type="text" id="sousuo" name="a" >
+  <input type="submit"  value="在新窗口打开搜索结果" name="b">
+  </form>
+  <hr>
+  <form>
+    <dl>
+    <p>个人信息调查表</p>
+    <dt>性别
+    <dd><input type="radio" name="xb" value="man">男
+    <input type="radio" name="xb" value="woman">女</dd></dt>
+    <dt>年龄</dt>
+    <dd>
+      <select>
+        <option value="" hidden>请选择
+          <optgroup label="少年">
+            <option value="">1到6岁</option>
+            <option value="">6到12岁</option>
+          </optgroup>
+          <optgroup label="青年">
+            <option value="">12到18岁</option>
+            <option value="">18到24岁</option>
+          </optgroup>
+          <optgroup label="中年">
+            <option value="">24到30岁</option>
+            <option value="">30到36岁</option>
+          </optgroup>
+        </option>
+      </select>
+    </dd>
+    <dt>生日
+      <dd><input type="date"></dd>
+    </dt>
+    <dt>生辰
+      <dd><input type="time"></dd>
+    </dt>
+    <dt>照片
+      <dd><input type="file" name="" id="image" accept="image/*" hidden>
+      <label for="image">点我上传照片</label></dd>
+    </dt>
+    <dt>自我介绍
+      <dd>
+        <textarea name="" rows="9" cols="20">&lt;/textarea></textarea>
+      </dd>
+    </dt>
+    <dt>
+      <fieldset disabled>
+        <legend>木大木大</legend>
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+      </fieldset>
+    </dt>
+  </dl>
+  <input type="submit">
+  <input type="reset">
+  </form>
 
 
   <p><a name="1"></a></p>
