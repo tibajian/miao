@@ -5,14 +5,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    xp  {color: #f00; size: 3px; }
+  </style>
+  <link src="html-basic.css" href="html-basic.css">
 </head>
 <body>
-  <h1>lorem</h1>
+  <h1 style="color: #f00; size: 2ch;">lorem</h1>
   <h2>Lorem,ipsum.</h2>
   <h3>Lorem, ipsum dolor.</h3>
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam porro adipisci unde optio sit maxime nihil mollitia consequuntur, enim dolorem explicabo accusantium? Optio nulla atque, ducimus illo aliquam a vitae?</p>
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus voluptate nihil dignissimos! Totam, quae. Laudantium impedit vel officia harum debitis ullam reiciendis, itaque ducimus fugiat dolorem quis. Explicabo, non eum.</p>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, quasi?</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel ab eveniet nemo eius tenetur, corporis provident delectus maiores ipsa dolor magni eum. Fugit, laborum accusamus voluptatem blanditiis nesciunt dolor amet.
+  Et, voluptates, voluptate voluptatum commodi ut veniam minus eius quo sapiente natus delectus, eos sed culpa exercitationem aliquam? In officiis dolore ullam eos a reprehenderit aperiam voluptas quam omnis. Quis.
+  Quod minima dignissimos perferendis consequatur. Molestiae quibusdam voluptates voluptatem iusto quo, sed culpa repudiandae delectus voluptatibus, nihil hic consectetur ex quasi, sit velit distinctio eius nemo alias unde atque! Consequuntur?
+  Maiores vitae iure quae debitis aut consectetur cupiditate itaque quia aperiam nihil, ad labore. Repellendus obcaecati veniam, est, laboriosam optio hic possimus neque, commodi ad voluptate rem fuga fugit sed!
+  Ducimus eveniet commodi laudantium ratione ad eum corporis, minus sequi quae officia, nesciunt excepturi autem maxime error eligendi. Ipsum, veniam. Illo vero commodi accusamus quos, quibusdam molestias accusantium eaque minima!
+  Eos beatae odio quam perspiciatis atque quis reiciendis distinctio, repellat rem iste labore voluptatibus numquam. Corporis veniam earum laborum exercitationem consectetur voluptas. Vero placeat nostrum voluptate, omnis similique incidunt fugiat?
+  Amet rem perspiciatis magni sint dolorem unde accusamus laborum, odit repudiandae deleniti sequi, hic provident placeat aut dolores omnis reprehenderit enim, incidunt architecto est tempora neque? Consectetur aperiam dolorem vitae!
+  Non, ab ipsa? Iure saepe dolore dolores quod dignissimos consectetur eius minima vitae earum autem eligendi tempore neque dolor voluptates impedit aliquam dolorem vel, culpa illum minus ipsum ut consequuntur.
+  Eum, autem. Sit quam deserunt repellat quae nihil vel quibusdam ipsum ad non veritatis pariatur odit, iusto, repellendus adipisci qui aperiam? Officia nulla dolor sint dicta libero quis perspiciatis culpa!</p>
+
   <a href="https://www.jd.com/" target="_blank">在新窗口打开京东</a>
   <a href="mailto:3129005948@qq.com">点我发邮件</a>
   <a href="#1">跳到页面底部</a>
@@ -57,13 +71,30 @@
     </dt>
   </dl>
   <hr>
+
   <form target="_blank" action="https://www.google.com.hk/search" >
   <label for="sousuo">
     <h2>Googel搜索</h2>
     <br></label>
-  <input type="text" id="sousuo" name="a" >
-  <input type="submit"  value="在新窗口打开搜索结果" name="b">
+    <!--<laber/h2/br>不能放表单里？-->
+  <input type="text" id="sousuo" name="q" >
+  <!--搜索里name值只能是q,才能搜索内容-->
+  <input name="ie" value="UTF-8" hidden>
+  <input name="sourceid" value="UTF" hidden>
+  <button>在新窗口打开搜索结果</button>
+
+  <!-- <input type="submit"  value="在新窗口打开搜索结果" name="b" > -->
   </form>
+
+  <h2>Google搜索</h2>
+
+  <form target="_blank" action="https://www.google.com.hk/search">
+    <input type="text" name="q">
+    <input hidden type="text" name="ie" value="UTF-8">
+    <input hidden type="text" name="sourceid" value="UTF">
+    <button type="submit">在新窗口打开搜索结果</button>
+  </form>
+
   <hr>
   <form>
     <dl>
@@ -118,8 +149,70 @@
   <input type="submit">
   <input type="reset">
   </form>
+  <hr>
+  <!--xxxx-->
 
+    <table border=1>
+    <col>
+    <col bgcolor=red>
+    <col span="2" bgcolor="blue">
+    <caption >333111</caption>
+    <thead>
+      <tr>
+        <th>编号</th>
+        <th>品名</th>
+        <th>进价</th>
+        <th>出价</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>aaa</th>
+        <td>a</td>
+        <td rowspan="2">a</td>
+        <td>a</td>
+      </tr>
+      <tr>
+        <th>a</th>
+        <td>a</td>
+        <td>a</td>
+      </tr>
+      <tr>
+        <th>a</th>
+        <td>a</td>
+        <td>a</td>
+        <td>a</td>
+      </tr>
+      <tr>
+        <th>a</th>
+        <td>a</td>
+        <td>a</td>
+        <td>a</td>
+      </tr>
+    </tbody>
+  </table>
 
-  <p><a name="1"></a></p>
+  <hr>
+
+  <img usemap="#map1" width=300 src="https://drscdn.500px.org/photo/174778125/m%3D1170_k%3D1/2841ccf2a3720e8e794a6a6930f6ff2c" alt="">
+
+  <map name="map1">
+    <area shape="rect" coords="200 190 55 105" href="https://www.jd.com/" target="_blank" alt="">
+    <area shape="circle" coords="150 300 150" href="https://www.jd.com/" target="_blank" alt="">
+  </map>
+
+  <hr>
+
+  <a target="bottom-frame" href="https://www.mi.com/">小米</a>
+  <div></div>
+  <iframe name="bottom-frame" src="https://www.nodejs.org/" frameborder="1"></iframe>
+
+  <div>aaa&nbsp;&nbsp;&nbsp;&nbsp;bbbbb</div>
+
+  <pre>aaa      bbbbb</pre>
+
+  >>>>>>>>>>>>>>>>>>>>>>&lt;<<<<<<<<<<<<<<<<<< &lt;span&gt;&lt;/span&gt;
+
+  <div id="dibu"></div>
 </body>
 </html>
