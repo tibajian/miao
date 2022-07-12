@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      padding: 12px;
+    }
+    #one-box {
+      background-color: red;
+      margin-bottom: 20px;
+    }
+    #one-box div {
+      width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: red;
+    }
+    #two-box {
+      border: 2px solid ;
+      /* width: 576px; */
+      height: 226px;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 576px;
+      padding: 16px 10px 0px 10px;
+    }
+    #two-box :first-child {
+      overflow-y: scroll;
+      height: calc(33% - 11px);
+      margin-bottom: 16px;
+    }
+    .rgb-box {
+      background-color: rgb(238, 130, 238);
+      height: calc(33% - 24px);
+      margin-bottom: 16px;
+    }
+    #two-box :last-child {
+      overflow-y: scroll;
+      height: calc(33% - 11px);
+      margin-bottom: -30px;
+    }
+    /* #two-box div {
+      margin-bottom: 15px;
+    } */
+    .rgb-view {
+
+      height: 50px;
+      margin-top: -148px;
+      width: 596px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .rgb-view:hover {
+      background-color: rgb(238, 130, 238);
+    }
+     .last {
+      /* border-bottom: 50px solid rgb(255, 165, 0); */
+      border: 50px solid;
+      border-color:transparent transparent rgb(255, 165, 0)  transparent;
+      margin-top: 118px;
+      width: 0;
+      height: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="one-box">
+    <div>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt at, ea natus cupiditate assumenda deserunt ex maxime dignissimos. Soluta laudantium id architecto fugit labore fuga consequatur placeat laboriosam dolorum! Incidunt!
+    </div>
+  </div>
+  <div id="two-box">
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae sapiente voluptas officiis, praesentium, nemo iure cumque nihil, facere hic asperiores dicta commodi magni, voluptates eaque esse atque nesciunt! Cupiditate, modi.</div>
+    <div class="rgb-box"></div>
+
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos modi accusantium deleniti consequuntur, enim nulla voluptatum qui ducimus esse rem eius eligendi consequatur sint. Sunt ut, est iusto neque numquam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam animi perspiciatis eos, molestias provident, quae ullam! Obcaecati suscipit optio labore iusto veniam facere, amet officiis, eveniet voluptatibus molestiae, dignissimos dolor!</div>
+  </div>
+  <div class="rgb-view"></div>
+  <div class="last"></div>
+</body>
+</html>

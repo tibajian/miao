@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+    #one-box {
+      background-color: black;
+      min-width: 600px;
+      /* overflow: hidden; */
+      margin-bottom: 16px;
+    }
+    .text1 {
+      width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      color: white;
+    }
+    .text2 {
+      width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 16px;
+    }
+    #three-box {
+      margin-left: auto;
+      margin-right: auto;
+      width: 600px;
+    }
+    #three-box div div{
+      width: 180px;
+      box-sizing: border-box;
+      height: 40px;
+      /* margin-left: 30px; */
+      margin-bottom: 15px;
+      border: 3px solid black;
+      background-color: rgb(255, 192, 203);
+      text-align: center;
+      padding-top: 6px;
+    }
+    /* #three-box {
+      margin-left: auto;
+      padding-right: 60px;
+
+    } */
+    #three-box div div:hover {
+      background-color: red;
+    }
+
+    .hang-1 {
+      margin-left: 210px;
+    }
+    .hang-2 {
+      margin-left: 420px;
+    }
+    .hang-1 :first-child , .hang-2 :first-child{
+      margin-top: -220px;
+    }
+    #four-box {
+      margin-left: auto;
+      margin-right: auto;
+      width: 600px;
+      overflow: hidden;
+      margin-top: -8px;
+    }
+    li {
+      margin-left: -40px;
+      border-bottom: 1px dotted black;
+    }
+    ul {
+      margin-bottom: -1px;
+      overflow: hidden;
+    }
+    #five-box {
+      background-color: rgb(238, 138, 238);
+      margin-top: 16px;
+
+    }
+    #five-box div {
+      width: 200px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="one-box">
+      <div class="text1">hello world 请调整浏览器窗口大小查看效果hello world 请调整浏览器窗口大小查看效果hello world 请调整浏览器窗口大小查看效果hello world 请调整浏览器窗口大小查看效果hello world 请调整浏览器窗口大小查看效果hello world 请调整浏览器窗口大小查看效果</div>
+  </div>
+  <div class="text2">页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px</div>
+  <div id="three-box">
+    <div class="hang-3">
+      <div>宽180高40(包含边框)</div>
+      <div>水平间隙30px</div>
+      <div>垂直间隙15px</div>
+      <div>边框宽度3px</div>
+    </div>
+    <div class="hang-1">
+      <div>产品</div>
+      <div>产品</div>
+      <div>产品</div>
+      <div>产品</div>
+    </div>
+    <div class="hang-2">
+      <div>产品</div>
+      <div>产品</div>
+      <div>产品</div>
+      <div>产品</div>
+    </div>
+  </div>
+  <div id="four-box">
+    <ul>
+      <li>link</li>
+      <li>link</li>
+      <li>link</li>
+      <li>link</li>
+      <li>link</li>
+    </ul>
+  </div>
+  <div id="five-box">
+    <div>©版权所有<br>本页所有布局均使用块元素</div>
+  </div>
+</body>
+</html>
