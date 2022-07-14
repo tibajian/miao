@@ -87,6 +87,27 @@
       margin-right: auto;
       text-align: center;
     }
+    .box-two {
+      width: 600px;
+      margin: auto;
+    }
+    .box-b li {
+      display: inline-block;
+      background-color: pink;
+      width: 174px;
+      border: 3px solid;
+      margin-right: 65px;
+      margin-top: 15px;
+      height: 34px;
+      text-align: center;
+      line-height: 33px;
+    }
+    .box-b li:hover {
+      background-color: blue;
+    }
+    .box-b :nth-child(3n) {
+      margin-right: 0;
+    }
   </style>
 </head>
 <body>
@@ -113,6 +134,22 @@
       <div>产品</div>
       <div>产品</div>
     </div>
+  </div>
+  <div class="box-two">
+    <ul class="box-b">
+      <li>宽180高40(包含边框)</li>
+      <li>2</li>
+      <li>3</li>
+      <li>水平间隙30px</li>
+      <li>5</li>
+      <li>6</li>
+      <li>垂直间隙15px</li>
+      <li>8</li>
+      <li>9</li>
+      <li>边框宽度3px</li>
+      <li>11</li>
+      <li>12</li>
+    </ul>
   </div>
   <div id="four-box">
     <ul>
