@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      background-color: rgb(97, 108, 131);
+    }
+    .a > li {
+      display: inline-block;
+      vertical-align: top;
+    }
+    li {
+      position: relative;
+    }
+    .a ul {
+      display: none;
+    }
+    li:hover > ul{
+      display: block;
+
+    }
+    li ul {
+      top: 100%;
+      left: 0;
+      position: absolute;
+    }
+    li li ul {
+      top: 0;
+      left: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <ul class="a">
+      <li>文件
+        <ul>
+          <li>111111111
+            <ul>
+              <li>111111111</li>
+              <li>2</li>
+              <li>3
+                <ul>
+                  <li>3333333</li>
+                </ul>
+              </li>
+              <li>4
+                <ul>
+                  <li>111111111</li>
+                  <li>2</li>
+                  <li>3</li>
+                  <li>4</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+        </ul>
+      </li>
+      <li>编辑
+        <ul>
+          <li>111111111</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+        </ul>
+      </li>
+      <li>选择</li>
+      <li>查看</li>
+      <li>转到</li>
+      <li>运行</li>
+      <li>终端</li>
+    </ul>
+  </div>
+</body>
+</html>
