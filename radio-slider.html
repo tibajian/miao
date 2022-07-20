@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRt_3CIGwihKCCL87tMX857rBg2yvlxHlRWw&usqp=CAU);
+      background-size: cover;
+    }
+    #topbox {
+      position: relative;
+    }
+    .box {
+      width: 1020px;
+      height: 600px;
+      margin: auto;
+      font-size: 0;
+    }
+    .a {
+      width: 1700px;
+      height: 1000px;
+      border: 2px solid ;
+      background-image: url(https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2022/07/05/02ed7c0c522d427bf940832723ad738b_2703387474910584091.png?x-oss-process=image/format,webp/interlace,1/quality,Q_90);
+      zoom: .6;
+      position: absolute;
+      visibility: hidden;
+    }
+    .b {
+      width: 1700px;
+      height: 1000px;
+      border: 2px solid ;
+      background-image: url(https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2022/07/05/e97f5777dd047a046b2c8d8b81d5f1dc_545291762129038907.png?x-oss-process=image/format,webp/interlace,1/quality,Q_90);
+      zoom: .6;
+      position: absolute;
+      visibility: hidden;
+    }
+    .c {
+      width: 1700px;
+      height: 1000px;
+      border: 2px solid ;
+      background-image: url(https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2022/07/05/474c187747708a09d3fc978d3ed304b9_898860202204764712.png?x-oss-process=image/format,webp/interlace,1/quality,Q_90);
+      zoom: .6;
+      position: absolute;
+      visibility: hidden;
+    }
+    .d {
+      width: 1700px;
+      height: 1000px;
+      border: 2px solid ;
+      background-image: url(https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2022/07/05/c6b64f9ff3f0188575ef9c25aabf6fbc_605394647632969758.png?x-oss-process=image/format,webp/interlace,1/quality,Q_90);
+      zoom: .6;
+      position: absolute;
+      visibility: hidden;
+    }
+    :nth-child(1):checked~:nth-child(5){
+      visibility: visible;
+    }
+    :nth-child(2):checked~:nth-child(6){
+      visibility: visible;
+    }
+    :nth-child(3):checked~:nth-child(7){
+      visibility: visible;
+    }
+    :nth-child(4):checked~:nth-child(8){
+      visibility: visible;
+    }
+    input {
+      display: none;
+    }
+    .forlabel {
+      position:absolute;
+      top: 550px;
+      left: 30px;
+    }
+    label span{
+      height: 12px;
+      width: 12px;
+      border-radius: 6px;
+      border: 1px solid red;
+      display: inline-block;
+      margin: 4px;
+      background-color: darksalmon;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div id="topbox">
+      <input type="radio" name="slider" id="a" checked>
+      <input type="radio" name="slider" id="b">
+      <input type="radio" name="slider" id="c">
+      <input type="radio" name="slider" id="d">
+      <div class="a"></div>
+      <div class="b"></div>
+      <div class="c"></div>
+      <div class="d"></div>
+      <div class="forlabel">
+        <label for="a"><span></span></label>
+        <label for="b"><span></span></label>
+        <label for="c"><span></span></label>
+        <label for="d"><span></span></label>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
