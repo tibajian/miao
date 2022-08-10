@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .shudu {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .shudu span {
+      width: 40px;
+      height: 40px;
+      border: 5px solid blue;
+      text-align: center;
+      line-height: 40px;
+    }
+    .flex-box {
+      width: 150px;
+      height: 150px;
+    }
+    .shudu span:hover {
+      border: 5px solid red;
+      z-index: 1;
+      cursor: pointer;
+    }
+    .shudu span:nth-child(3n+2) , span:nth-child(3n+3){
+      margin-left: -5px;
+    }
+    .shudu span:nth-child(n+4){
+      margin-top: -5px;
+    }
+    .float-box {
+      width: 180px;
+    }
+    .float-box p {
+      margin: 0;
+      float: left;
+      width: 50px;
+      height: 50px;
+      border: 5px solid blue;
+      text-align: center;
+      line-height: 50px;
+      position: relative;
+    }
+    .float-box p:nth-child(3n+2) , p:nth-child(3n+3){
+      margin-left: -5px;
+    }
+    .float-box p:nth-child(n+4){
+      margin-top: -5px;
+    }
+    .float-box p:hover {
+      cursor: pointer;
+      border: 5px solid red;
+      z-index: 1;
+    }
+    .boke {
+      border-bottom:2px solid red;
+      width: 300px;
+      height: 100px;
+      margin-top: 300px;
+      background-color: aqua;
+      display: flex;
+      align-items: end;
+    }
+    .boke:hover {
+      background-color: green;
+    }
+    .boke:active {
+      background-color: aquamarine;
+      font-size: 40px;
+      transition: 4s;
+    }
+  </style>
+</head>
+<body>
+  <div class="flex-box">
+    <div class="shudu">
+      <span>1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+      <span>5</span>
+      <span>6</span>
+      <span>7</span>
+      <span>8</span>
+      <span>9</span>
+    </div>
+  </div>
+  <div class="float-box">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+  </div>
+  <div class="boke">订阅博客</div>
+</body>
+</html>

@@ -39,7 +39,7 @@
       font-weight: bold;
     }
     /*  */
-    .table-striped tbody tr:nth-child(2n + 1){
+    /* .table-striped tbody tr:nth-child(2n + 1){
       background-color: #f9f9f9;
     }
     .table-striped tbody tr:hover {
@@ -61,26 +61,52 @@
     .table-striped-columns tr:last-child td:last-child {
       background-color: #eef0f2;
     }
-    .table-borderless ,.table-borderless tr,.table-borderless td {
+    .table-borderless ,.table-borderless th,.table-borderless td {
       border: hidden;
     }
     .table-sm {
-
+      padding: 6px;
+    }
+    .table-dark thead{
+      background-color: black;
+      color: #f9f9f9;
+    } */
+    /*  */
+    div {
+      height: 100px;
+    }
+    .table-sm td , .table-sm th{
+      padding: 6px;
+    }
+    .table-striped tbody tr:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+    .table-hover tbody tr:hover {
+      background-color: #6b6f74;
+    }
+    .table-bordered , .table-bordered th , .table-bordered td{
+      border: 1px solid #eef0f2;
+    }
+    .table-borderless ,.table-borderless th,.table-borderless td {
+      border: hidden;
     }
     .table-dark thead{
       background-color: black;
       color: #f9f9f9;
     }
-    /*  */
-    div {
-      height: 100px;
+    .table-striped-columns tr :nth-child(2n){
+      background-color: #343a40;
+    }
+    .table-striped-columns tbody tr:hover {
+      background-color: #343a40;
     }
   </style>
 </head>
 <body>
   <div>
     <p>table布局</p>
-    <table class="table">
+    <table class="table xtable-sm xtable-striped xtable-hover
+     xtable-bordered xtable-borderless xtable-dark xtable-striped-columns">
       <colgroup>
         <col>
         <col>
@@ -310,7 +336,7 @@
           <td>@twitter</td>
         </tr>
       </tbody>
-    </table>
+    </table><div></div>
     <table class="table-striped-columns">
       <colgroup>
         <col>

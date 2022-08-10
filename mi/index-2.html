@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+       /* https://www.mi.com/shop */
+    body {
+      margin: 0;
+    }
+    /* 整体居中 */
+    .all-box {
+      width: 1225px;
+      margin: auto;
+      /* 定位，不影响外面 */
+      position: relative;
+      /* 滚动条 */
+    }
+    .nav-b {
+      height: 40px;
+      width: 100%;
+      background-color: #333333;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+    }
+    .nav {
+      position: relative;
+    }
+
+    /* 列表格式化 */
+    .nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 40px;
+      background-color: #333333;
+    }
+
+    .nav li {
+      font-family: Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+      margin-top: 14px;
+      font-size: 12px;
+      height: 14px;
+      line-height: 14px;
+      padding-left: 8px;
+      padding-right: 8px;
+      border-right: 1px solid rgb(66, 66, 66);
+      cursor: text;
+    }
+    .nav a {
+      text-decoration: none;
+      padding-top: 14px;
+      padding-bottom: 12px;
+      color: rgb(176, 176, 176);
+    }
+    .nav li:first-child {
+      padding-left: 0;
+    }
+    .nav li:nth-child(13) {
+      border-right: none;
+    }
+    .nav li:nth-child(14) {
+      padding-right: 7px;
+      margin-left: 146px;
+    }
+    .nav li:nth-child(15) {
+      padding-right: 7px;
+      padding-left: 6px;
+    }
+    .nav li:nth-child(16) {
+      padding-left: 10px;
+      border-right: none;
+    }
+    .nav li:nth-child(17) {
+      border-right: none;
+      width: 122px;
+      height: 40px;
+      margin-top: 0;
+      padding: 0;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      line-height: 40px;
+      background-color: #424242;
+    }
+    .nav li:nth-child(17) a {
+      display: block;
+      padding: 0;
+    }
+    /* 以上nav基本样式 */
+    /* nav两个下拉菜单 */
+    .download {
+      width: 82px;
+      height: 0px;
+      position: absolute;
+      box-shadow: 0 1px 4px 1px rgb(219, 219, 219);
+      top: 40px;
+      margin-left: -40px;
+      padding: 20px;
+      /* background-color: aqua; */
+      background-image: url(https://i1.mifile.cn/f/i/17/appdownload/download.png?1);
+      background-size: 90px 90px;
+      background-repeat: no-repeat;
+      background-position: top 20px left 18px;
+      visibility: hidden;
+      background-color:rgb(255, 255, 255);
+    }
+    .download p {
+      position: absolute;
+      top: 106px;
+      font-size: 14px;
+      color: black;
+    }
+    .download div {
+      border: 10px solid white;
+      position: absolute;
+      width: 0;
+      top: -20px;
+      left: 50px;
+      border-color: transparent transparent white transparent;
+    }
+    .download,.tip{
+      cursor: pointer;
+    }
+    .nav a:hover {
+      color:rgb(255, 255, 255);
+    }
+    .nav li:nth-child(12) a:hover .download{
+      visibility: visible;
+      height: 110px;
+      transition: .3s;
+      z-index: 1;
+    }
+    .nav li:nth-child(17) a:hover .shop {
+      visibility: visible;
+      height: 100px;
+      line-height: 100px;
+      transition: .3s;
+      z-index: 1;
+      background-color: #ffffff;
+      cursor: auto;
+    }
+    .nav li:nth-child(17) a:hover {
+      background-color: #ffffff;
+      color: #ff6700;
+    }
+    .shop {
+      position: absolute;
+      right: 0;
+      width: 300px;
+      height: 0px;
+      /* background-color: antiquewhite; */
+      box-shadow: 0 1px 1px 1px rgb(219, 219, 219);
+      visibility: hidden;
+    }
+    /* 第二行zhuti */
+    .zhuti  ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      height: 100px;
+      position: relative;
+    }
+    .zhuti  ul li a{
+      text-decoration: none;
+      color: #333333;
+    }
+    .zhuti > ul > li:first-child > a {
+      background-image: url(https://s02.mifile.cn/assets/static/image/logo-mi2.png);
+      background-repeat: no-repeat;
+      background-size: 60px 60px;
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .zhuti > ul > li:nth-child(2) > a {
+      margin-left: 180px;
+      line-height: 60px;
+      display: inline-block;
+      height: 80px;
+      margin-top: 20px;
+    }
+    .zhuti > ul > li:nth-child(n+3) > a {
+      padding-left: 19px;
+      line-height: 60px;
+      display: inline-block;
+      margin-top: 20px;
+      height: 80px;
+    }
+    /* 搜索框 */
+    .zhuti  ul  li:last-child form {
+      position: absolute;
+      right: 0;
+      line-height: 100px;
+
+    }
+    .zhuti  ul  li:last-child form input {
+      width: 231px;
+      height: 46px;
+      position: absolute;
+      padding-left: 10px;
+      right: 49px;
+      top: 25px;
+      border: 1px solid #e0e0e0;
+      outline: none;
+    }
+    .zhuti  ul  li:last-child form button {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: 25px;
+      border: 1px solid #e0e0e0;
+      right: 0;
+      background-color: #ffffff;
+    }
+    .zhuti ul  li:last-child form .input-box {
+      position: absolute;
+      right: 49px;
+      top: 74px;
+      width: 243px;
+      height: 245px;
+      visibility: hidden;
+      border: 1px solid #ff6700;
+    }
+    .zhuti  ul  li:last-child form .input-box a {
+      display: block;
+      height: 30px;
+      line-height: 30px;
+      padding-left: 10px;
+      font-size: 14px;
+    }
+    .zhuti  ul  li:last-child form .input-box a:hover {
+      background-color: #fafafa;
+    }
+    .zhuti  ul  li:last-child form input:focus ~ div{
+      visibility: visible;
+      background-color: #ffffff;
+    }
+    .zhuti  ul  li:last-child form input:focus,
+    .zhuti  ul  li:last-child form input:focus + button{
+      border-color: #ff6700;
+    }
+    /* 第二行下拉 */
+    /* 这种链接级联菜单，用:hover ul>li,就可以级联,没用上*/
+    .zhuti菜单 {
+      width: 100%;
+      left: 0;
+      position: absolute;
+      height: 230px;
+      /* background-color: #ff6700; */
+      visibility: hidden;
+    }
+    .zhuti菜单 li {
+      width: 200px;
+      height: 230px;
+      position: relative;
+    }
+    .zhuti菜单 ul li a {
+      width: 160px;
+      height: 193px;
+      bottom: 0;
+      left: 20px;
+      position: absolute;
+      text-align: center;
+    }
+    .zhuti菜单 ul li a span:first-child {
+      display: inline-block;
+      width: 180px;
+      height: 110px;
+      margin-bottom: 10px;
+      background-repeat: no-repeat;
+      background-size:160px 110px;
+      border-right: 1px solid #e0e0e0;
+    }
+    .zhuti菜单 ul li:first-child a span:first-child {
+      background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d7a15df55e98e4163390096ed05b1ef5.png?thumb=1&w=160&h=110&f=webp&q=90);
+    }
+    .zhuti菜单 ul li:nth-child(2) a span:first-child {
+      background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b01bb7ee0f8c9865c11eeb2c483015e2.png?thumb=1&w=160&h=110&f=webp&q=90);
+    }
+    .zhuti菜单 ul li:nth-child(3) a span:first-child {
+      background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a811f07a4e13510b23ada8e2eca473ae.png?thumb=1&w=160&h=110&f=webp&q=90);
+    }
+    .zhuti菜单 ul li:nth-child(4) a span:first-child {
+      background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e1f5a30b6e9e29c7f4ad6ed26023f4de.png?thumb=1&w=160&h=110&f=webp&q=90);
+    }
+    .zhuti菜单 ul li:nth-child(5) a span:first-child {
+      background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/88ae9b85c5f8fbdae2ea98d58a045e1e.png?thumb=1&w=160&h=110&f=webp&q=90);
+    }
+    .zhuti菜单 ul li:nth-child(6) a span:first-child {
+      background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/02ac31f8d3848f71617e074e8e50879e.png?thumb=1&w=160&h=110&f=webp&q=90);
+    }
+    .zhuti菜单 ul li a span:nth-child(2) {
+      font-size: 12px;
+      line-height: 25px;
+    }
+    .zhuti菜单 ul li a :nth-child(3) {
+      font-size: 12px;
+      color: #ff6700;
+      font-weight: 600;
+    }
+    /* 下拉菜单，保证鼠标离开a标签能hover住自己 */
+    .zhuti菜单:hover {
+      visibility: visible;
+      z-index: 1;
+      background-color: #ffffff;
+    }
+
+    .zhuti ul li:nth-child(n) a:hover + .zhuti菜单{
+      z-index: 1;
+      background-color: #ffffff;
+      visibility: visible;
+    }
+    /* 轮播图 */
+    .carousel {
+      height: 460px;
+    }
+    .carousel-left {
+      width: 230px;
+      height: 420px;
+      float: left;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      /* background-color: #3f3d3d; */
+      position: relative;
+      z-index: 1;
+    }
+    .carousel-left a > span {
+      display: flex;
+      height: 42px;
+      line-height: 42px;
+      color: #ffffff;
+      padding-left: 30px;
+      font-size: 14px;
+    }
+    .carousel-left span div{
+      position: absolute;
+      right: 20px;
+      margin-top: 14px;
+      width: 5px;
+      height: 5px;
+      border: 3px solid #dedede;
+      transform: rotate(45deg);
+      border-color: #dedede #dedede transparent transparent ;
+    }
+    .carousel-left span:hover {
+      background-color: #ff6700;
+    }
+    .carousel-left span:hover .carousel-a {
+      visibility: visible;
+    }
+    .carousel-left a {
+      text-decoration: none;
+    }
+    .carousel-a {
+      width: 995px;
+      height: 460px;
+      position: absolute;
+      left: 100%;
+      top: 0;
+      /* visibility: hidden; */
+    }
+    .carousel-a span {
+      display: flex;
+      flex-wrap: wrap;
+      width: 25%;
+      background-color: #ffffff;
+      height: 460px;
+    }
+    .carousel-a span p {
+      height: 46.7px;
+      margin: 0;
+      padding-top: 30px;
+      padding-left: 70px;
+      background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b883131e62133041d7ac8272c17762b0.png?thumb=1&w=40&h=40&f=webp&q=90);
+      background-size: 40px 40px;
+      background-repeat: no-repeat;
+      background-position: 22px 22px;
+    }
+    .carousel-a span p:hover {
+      color: #ff6700;
+    }
+    .carousel-right {
+      width: 100%;
+      height: 460px;
+      position: relative;
+      background-color: #0f5b78;
+    }
+  </style>
+</head>
+<body>
+  <!-- 页面构造失败原因，未考虑整体布局而去扣细节，导致后期调正太过繁琐 -->
+  <!-- 先整体弄好布局 -->
+  <div class="all-box">
+    <!-- 导航栏，考虑链接套列表 -->
+    <div class="nav">
+      <ul>
+        <li><a href="">小米官网</a></li>
+        <li><a href="">小米商城</a></li>
+        <li><a href="">MIUI</a></li>
+        <li><a href="">loT</a></li>
+        <li><a href="">云服务</a></li>
+        <li><a href="">天星数科</a></li>
+        <li><a href="">有品</a></li>
+        <li><a href="">小爱开放平台</a></li>
+        <li><a href="">企业团购</a></li>
+        <li><a href="">资质证照</a></li>
+        <li><a href="">协议规则</a></li>
+        <li><a href="" id="down">下载app
+          <label for="down">
+            <div class="download">
+              <p>小米商城APP</p>
+              <div class="tip"></div>
+            </div>
+          </label></a>
+        </li>
+        <li><a href="">Select Location</a></li>
+        <li><a href="">登录</a></li>
+        <li><a href="">注册</a></li>
+        <li><a href="">消息通知</a></li>
+        <li><a href="">购物车 (0)
+          <div class="shop">
+            <span>购物车中还没有商品，赶紧选购吧！</span>
+          </div></a>
+        </li>
+      </ul>
+    </div>
+    <div class="zhuti">
+      <ul >
+        <li><a href=""></a></li>
+        <li><a href="">Xiaomi手机</a>
+          <div class="zhuti菜单">
+            <ul>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi 12S Ultra</span>
+                <div>5999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi 12S Pro</span>
+                <div>4699元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi 12S</span>
+                <div>3999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi 12S Pro 天玑版</span>
+                <div>3999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi Civi 2S</span>
+                <div>2299元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi 12 Pro</span>
+                <div>4699元起</div></a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="">Redmi手机</a>
+          <div class="zhuti菜单">
+            <ul>
+              <li><a href="">
+                <span></span>
+                <span>Redmi Note 11T Pro</span>
+                <div>1999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Redmi Note 11T Pro</span>
+                <div>4699元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Redmi Note 11T Pro</span>
+                <div>3999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Redmi Note 11T Pro</span>
+                <div>3999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Redmi Note 11T Pro</span>
+                <div>2299元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Redmi Note 11T Pro</span>
+                <div>4699元起</div></a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="">电视</a>
+          <div class="zhuti菜单">
+            <ul>
+              <li><a href="">
+                <span></span>
+                <span>电视</span>
+                <div>5999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>电视</span>
+                <div>4699元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>电视</span>
+                <div>3999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>电视 12S Pro 天玑版</span>
+                <div>3999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>电视 Civi 2S</span>
+                <div>2299元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>电视 12 Pro</span>
+                <div>4699元起</div></a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="">笔记本</a>
+          <div class="zhuti菜单">
+            <ul>
+              <li><a href="">
+                <span></span>
+                <span>笔记本 12S Ultra</span>
+                <div>5999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>笔记本 12S Pro</span>
+                <div>4699元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>笔记本 12S</span>
+                <div>3999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>笔记本 12S Pro 天玑版</span>
+                <div>3999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>笔记本 Civi 2S</span>
+                <div>2299元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>笔记本 12 Pro</span>
+                <div>4699元起</div></a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="">平板</a>
+          <div class="zhuti菜单">
+            <ul>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi 12S Ultra</span>
+                <div>5999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi 12S Pro</span>
+                <div>4699元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi 12S</span>
+                <div>3999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi 12S Pro 天玑版</span>
+                <div>3999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi Civi 2S</span>
+                <div>2299元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi 12 Pro</span>
+                <div>4699元起</div></a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="">家电</a>
+          <div class="zhuti菜单">
+            <ul>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi 12S Ultra</span>
+                <div>5999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi 12S Pro</span>
+                <div>4699元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi 12S</span>
+                <div>3999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi 12S Pro 天玑版</span>
+                <div>3999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi Civi 2S</span>
+                <div>2299元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi 12 Pro</span>
+                <div>4699元起</div></a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="">路由器</a>
+          <div class="zhuti菜单">
+            <ul>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi 12S Ultra</span>
+                <div>5999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi 12S Pro</span>
+                <div>4699元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi 12S</span>
+                <div>3999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi 12S Pro 天玑版</span>
+                <div>3999元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi Civi 2S</span>
+                <div>2299元起</div></a></li>
+              <li><a href="">
+                <span></span>
+                <span>Xiaomi 12 Pro</span>
+                <div>4699元起</div></a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="">服务中心</a></li>
+        <li><a href="">社区</a></li>
+        <li><form action="">
+              <input type="text" maxlength="19" placeholder="显示器">
+              <button></button>
+              <div class="input-box">
+                <a href="">全部商品</a><a href="">手机</a><a href="">冰箱</a><a href="">电视</a><a href="">手表</a><a href="">小米</a><a href="">黑米</a><a href="">红米</a>
+              </div>
+            </form>
+        </li>
+      </ul>
+    </div>
+    <div class="carousel">
+      <div class="carousel-left">
+        <a href=""><span>手机 <div></div></span>
+          <div class="carousel-a">
+            <span>
+              <p>xiaomi 12s pro</p>
+              <p>xiaomi 12s pro</p>
+              <p>xiaomi 12s pro</p>
+              <p>xiaomi 12s pro</p>
+              <p>xiaomi 12s pro</p>
+              <p>xiaomi 12s pro</p>
+            </span>
+            <span>
+              <p>xiaomi 12s pro</p>
+              <p>xiaomi 12s pro</p>
+              <p>xiaomi 12s pro</p>
+              <p>xiaomi 12s pro</p>
+              <p>xiaomi 12s pro</p>
+              <p>xiaomi 12s pro</p>
+            </span>
+            <span>
+              <p>xiaomi 12s pro</p>
+              <p>xiaomi 12s pro</p>
+              <p>xiaomi 12s pro</p>
+              <p>xiaomi 12s pro</p>
+              <p>xiaomi 12s pro</p>
+              <p>xiaomi 12s pro</p>
+            </span>
+            <span>
+              <p>xiaomi 12s pro</p>
+              <p>xiaomi 12s pro</p>
+              <p>xiaomi 12s pro</p>
+              <p>xiaomi 12s pro</p>
+              <p>xiaomi 12s pro</p>
+              <p>xiaomi 12s pro</p>
+            </span>
+          </div>
+        </a>
+        <a href=""><span>电视 <div></div></span>
+          <div class="carousel-a"></div>
+        </a>
+        <a href=""><span>笔记本 平板 <div></div></span>
+          <div class="carousel-a"></div>
+        </a>
+        <a href=""><span>出行 穿戴 <div></div></span>
+          <div class="carousel-a"></div>
+        </a>
+        <a href=""><span>耳机 音箱 <div></div></span>
+          <div class="carousel-a"></div>
+        </a>
+        <a href=""><span>家电 <div></div></span>
+          <div class="carousel-a"></div>
+        </a>
+        <a href=""><span>智能 路由器 <div></div></span>
+          <div class="carousel-a"></div>
+        </a>
+        <a href=""><span>电源 配件 <div></div></span>
+          <div class="carousel-a"></div>
+        </a>
+        <a href=""><span>健康 儿童 <div></div></span>
+          <div class="carousel-a"></div>
+        </a>
+        <a href=""><span>生活 箱包 <div></div></span>
+          <div class="carousel-a"></div>
+        </a>
+      </div>
+      <div class="carousel-right"></div>
+    </div>
+    <!-- 以上是主视窗口 -->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div class="nav-b"></div>
+</body>
+</html>

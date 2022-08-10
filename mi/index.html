@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* https://www.mi.com/shop */
+    html,body {
+      margin: 0;
+    }
+    /* 导航栏 */
+    .navs {
+      height: 40px;
+      background-color: rgb(51, 51, 51);
+      position:relative;
+    }
+    .navs-box {
+      width: 1230px;
+      position:relative;
+      margin: auto;
+    }
+    .navs1 {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 800px;
+      flex-wrap: wrap;
+      display: flex;
+      /* 在标签之间鼠标为text */
+      cursor: text;
+    }
+    .navs1 li, .navs2 li{
+      color: rgb(176, 176, 176);
+      font-family: Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+      height: 15px;
+      margin-top: 12px;
+      font-size: 12px;
+      line-height: 18px;
+      border-right: 1px solid rgb(66, 66, 66);
+    }
+    .navs1 a, .navs2 a {
+      text-decoration: none;
+      height: 40px;
+      margin-right: 8px;
+      margin-left: 8px;
+    }
+    .navs1 a:last-child,.navs2 a:last-child {
+      margin-right: 0;
+    }
+    .navs1 a:first-child,.navs2 a:first-child {
+      margin-left: 0;
+    }
+    .navs1 a:first-child li,.navs2 a:first-child li{
+      margin-left: 0;
+    }
+    .navs1 a:last-child li,.navs2 a:last-child li{
+      margin-right: 0;
+      border: none;
+    }
+    .navs1 a li:hover,.navs2 a li:hover {
+      color:rgb(255, 255, 255);
+    }
+    .navs1 a li:hover div {
+      visibility: visible;
+    }
+    .app-a {
+      visibility: hidden;
+    }
+    .download {
+      width: 82px;
+      height: 110px;
+      position: absolute;
+      box-shadow: 0 1px 4px 1px rgb(219, 219, 219);
+      top: 40px;
+      margin-left: -40px;
+      padding: 20px;
+      /* background-color: aqua; */
+      background-image: url(https://i1.mifile.cn/f/i/17/appdownload/download.png?1);
+      background-size: 90px 90px;
+      background-repeat: no-repeat;
+      background-position: top 20px left 18px;
+      visibility: hidden;
+    }
+    .download p {
+      position: absolute;
+      top: 106px;
+      font-size: 14px;
+      color: black;
+    }
+    .download div {
+      border: 10px solid white;
+      position: absolute;
+      width: 0;
+      top: -20px;
+      left: 50px;
+      border-color: transparent transparent white transparent;
+    }
+    .download,.tip{
+      cursor: pointer;
+    }
+    /* navs2 */
+    .navs2 {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      left: 950px;
+      top: 0;
+      width: 150px;
+      cursor: text;
+    }
+    .navs3 {
+      list-style: none;
+      position: absolute;
+      right: 0;
+      width: 120px;
+      top: 0;
+      height: 40px;
+      background-color: #424242;
+      text-decoration: none;
+    }
+    .navs3 div {
+      color: rgb(176, 176, 176);
+      font-family: Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+      margin-top: 12px;
+      font-size: 12px;
+      line-height: 18px;
+    }
+    /* 主页主题 */
+    .zhuti {
+      width: 1230px;
+      background-image: url(https://s02.mifile.cn/assets/static/image/logo-mi2.png);
+      background-size: 55px 55px;
+      background-repeat: no-repeat;
+      background-position: center left 0;
+      margin: auto;
+      height: 100px;
+      position: relative;
+    }
+    .zhuti ul {
+      list-style: none;
+      display: flex;
+      width: 640px;
+      height: 100px;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      left: 230px;
+    }
+    .zhuti ul li {
+      margin: 10px;
+      line-height: 60px;
+    }
+    .zhuti a {
+      text-decoration: none;
+      color: #333333;
+      margin-top: 10px;
+    }
+    .zhuti a:hover {
+      color: #ff6784;
+    }
+    .zhuti a:hover ~ .zhuti-nav {
+      visibility: visible;
+    }
+    /* zhuti 下拉框 */
+    .zhuti-nav {
+      height: 229px;
+      width: 100vw;
+      left: 0;
+      border-top: 1px solid #e0e0e0;
+      box-shadow: 0 2px 2px 1px #dddddd;
+      position: absolute;
+      visibility: hidden;
+      /* background-color:aquamarine; */
+    }
+    .zhuti-nav :nth-child(n) {
+      width: 1230px;
+      margin: auto;
+    }
+    .zhuti-nav :nth-child(1) ul{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      position: absolute;
+      display: flex;
+    }
+    .zhuti-nav :nth-child(1) li:nth-child(1) div{
+      width: 90px;
+      height: 90px;
+      top: 40px;
+      padding-left: 55px;
+      padding-right: 54px;
+      padding-top: 20px;
+      position: absolute;
+      background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d7a15df55e98e4163390096ed05b1ef5.png?thumb=1&w=160&h=110&f=webp&q=90);
+      background-repeat: no-repeat;
+      background-position: center top;
+      border-right: 1px solid #e0e0e0;
+    }
+    .zhuti-nav :nth-child(1) li:nth-child(1) :nth-child(2) {
+      position: absolute;
+      text-align: center;
+      width: 200px;
+      font-family: Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+      font-size: 12px;
+      top: 170px;
+    }
+    .zhuti-nav :nth-child(1) li:nth-child(1) :nth-child(3) {
+      position: absolute;
+      text-align: center;
+      width: 200px;
+      font-family: Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+      font-size: 12px;
+      top: 190px;
+      color: #ff6700;
+    }
+    .zhuti-nav :nth-child(1) li:nth-child(1) a {
+      position: absolute;
+      width: 180px;
+      height: 170px;
+      margin-top: 40px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navs">
+    <div class="navs-box">
+      <ul class="navs1">
+        <a href=""><li>小米官网</li></a>
+        <a href=""><li>小米商城</li></a>
+        <a href=""> <li>MIUI</li></a>
+        <a href=""><li>loT</li></a>
+        <a href=""><li>云服务</li></a>
+        <a href=""><li>天星数科</li></a>
+        <a href=""> <li>有品</li></a>
+        <a href=""> <li>小爱开放平台</li></a>
+        <a href=""> <li>企业团购</li></a>
+        <a href=""><li>资质证照</li></a>
+        <a href=""><li>协议规则</li></a>
+        <a href="" id="down"><li>下载app
+          <label for="down">
+            <div class="download">
+            <p>小米商城APP</p>
+            <div class="tip"></div>
+            </div>
+          </label>
+        </li></a>
+        <a href=""><li>Select Location</li></a>
+      </ul>
+      <ul class="navs2">
+        <a href=""><li>登录</li></a>
+        <a href=""><li>注册</li></a>
+        <a href=""><li>消息通知</li></a>
+      </ul>
+      <a href="" class="navs3"><div>购物车(0)</div></a>
+    </div>
+  </div>
+  <div class="zhuti">
+    <ul>
+      <a href="">
+        <li>Xiaomi手机</li>
+      </a>
+      <a href="">
+        <li>Redmi手机</li>
+      </a>
+      <a href="">
+        <li>电视</li>
+      </a>
+      <a href="">
+        <li>笔记本</li>
+      </a>
+      <a href="">
+        <li>平板</li>
+      </a>
+      <a href="">
+      <li>家电</li>
+      </a>
+      <a href="">
+       <li>路由器</li>
+      </a>
+      <a href=""><li>服务中心</li></a>
+      <a href=""> <li>社区</li></a>
+       <div class="zhuti-nav">
+         <div>
+            <ul>
+              <li>
+                <div></div>
+                <span> Xiaomi 12S Ultra</span>
+                  <span>5999元起</span>
+                  <a href=""></a>
+                </li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+       </div>
+    </ul>
+
+
+  </div>
+
+
+</body>
+</html>

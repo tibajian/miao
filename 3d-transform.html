@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      font-size: 0;
+    }
+    div {
+      position: relative;
+      height: 400px;
+      /* background-color: aqua; */
+    }
+    span {
+      position: absolute;
+      left: calc(50% - 50px);
+      top: 100px;
+      width: 100px;
+      height: 100px;
+      margin: 0;
+      padding: 0;
+      background-color: red;
+      background-image: linear-gradient(red ,yellow,green,blue);
+      display: inline-block;
+      font-size: 60px;
+      line-height: 100px;
+      text-align: center;
+    }
+    span:nth-child(2) {
+      transform-origin: left;
+      transform: rotate3d(0,1,0,90deg);
+      background-color: yellow;
+    }
+    span:nth-child(3) {
+      transform: translatez(-100px);
+      background-color: rgb(61, 30, 122);
+    }
+    span:nth-child(4) {
+      transform-origin: right;
+      background-color: rgb(26, 116, 77);
+      transform: rotate3d(0,1,0,-90deg);
+    }
+    span:nth-child(5) {
+      transform-origin: top;
+      transform: rotate3d(1,0,0,-90deg);
+      background-color:rgb(140, 110, 30);
+    }span:nth-child(6) {
+      transform-origin: bottom;
+      transform: rotate3d(1,0,0,90deg);
+      background-color:rgb(132, 19, 79);
+    }
+    div:hover {
+      transform: rotate3d(1 ,1 ,1, 3600deg);
+      transition: 8s;
+      perspective: 3000px;
+      transform-style:preserve-3d;
+      backface-visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+    <span>5</span>
+    <span>6</span>
+  </div>
+</body>
+</html>
