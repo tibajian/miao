@@ -1,0 +1,130 @@
+<script>
+  //生成长度为N的随机数组成的数组
+  function randomArray(n) {
+    let result = []
+    for (var i = 0; i < n; i++) {
+      result.push(Math.random() * n | 0)//0~1 * n | 0取整
+    }
+    return result
+  }
+  //判断非递减数组
+  function isSorted(ary) {
+      for (var j = 0; j < ary.length; j++) {
+        if (ary[j] > ary[j + j]) {
+          return false
+        }
+    }
+    return true
+  }
+
+
+  //冒泡排序、时间O(n^2)/空间O(1)
+  function bubblesort(ary) {//两两交换
+    for (var i = ary.length - 1; i > 0; i--) {//循环一次，下一次数量减一
+      var t = false//当排序到中间出现没有交换的情况时，直接结束
+      for (var j = 0; j < i; j++) {
+        if (ary[j] > ary[j + 1]) {
+          t = true
+          var chest = ary[j + 1]
+          ary[j + 1] = ary[j]
+          ary[j] = chest
+        }
+      }
+      if (!t) {
+        break
+      }
+    }
+    return ary
+  }
+  //选择排序、时间O(n^2)/空间O(1)
+  function selectSort(ary) {//选第一小、第二小。。
+    for (var i = 0; i < ary.length - 1; i++) {
+      var m = i
+      for (var j = i +1; j < ary.length; j++) {
+        if (ary[m] > ary[j]) {
+          m = j//取小
+        }
+      }
+      let t = ary[i]
+      ary[i] = ary[m]
+      ary[m] = t
+    }return ary
+  }
+  //插入排序、时间O(n^2)/空间O(1)
+  function insertSort(ary) {//插入有序
+    for (var i = 1; i < ary.length; i++) {//右边无序，i无序第一个
+      var t = ary[i]
+      for (var j = i - 1; j >= 0; j--) {//左边已排序,j排序完最大数
+        if (ary[j] > t) {
+          ary[j + 1] = ary[j]
+        }else break
+      }
+      ary[j + 1] = t
+    }
+    return ary
+  }
+  //归并排序、时间O(n*log(n))/空间O(n + log(n))
+  function mergeSort(ary) {
+    //分半
+    if (ary.length < 2) {
+      return ary
+    }
+    var mid = Math.floor(ary.length / 2)
+    var left = ary.slice(0 , mid)
+    var right = ary.slice(mid)
+    //排序
+    mergeSort(left)
+    mergeSort(right)
+    //合并
+    var i = 0
+    var j = 0
+    var k = 0
+    while (i < left.length && j < right.length) {//两个有序合并
+      if (left[i] < right[j]) {
+        ary[k] = left[i]
+        k++
+        i++
+      }else {
+        ary[k] = right[j]
+        k++
+        j++
+      }
+    }
+    //剩下的
+    while (i < left.length) {
+      ary[k] = left[i]
+      k++
+      i++
+    }while (j < right.length) {
+      ary[k] = right[j]
+      k++
+      j++
+    }
+    return ary
+  }
+  //快排
+  function quickSort(ary) {
+    if (ary.length < 2) {
+      return ary.slice()
+    }
+    //选数
+    var a = ary.at(Math.random() * ary.length | 0)
+    //分大小等于排序
+    var right = []
+    var left = []
+    var mid = []
+    for (var i = 0; i < ary.length; i++) {
+      if (ary[i] > a) {
+        right.push(ary[i])
+      }else if (ary[i] < a) {
+        left.push(ary[i])
+      }else {
+        mid.push(ary[i])
+      }
+    }
+    var sortedLeft = quickSort(left)
+    var sortedRight = quickSort(right)
+    //合并
+    return sortedLeft.concat(mid, sortedRight)
+  }//就地快排，，，
+</script>

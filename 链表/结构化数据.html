@@ -1,0 +1,24 @@
+<script>//拆分url数据  a=1&b=2&c=3
+  function parseQueryString(str) {
+    obj = {}
+    var pairs = str.split('&')
+    pairs.forEach(function(pair) {
+      var [key, val] = pair.split('=')
+      if (key in obj) {
+        if (!Array.isArray(obj[key])) {
+          obj[key] = [obj[key]]
+        }
+        obj[key].push(val)
+      }else {
+        obj[key] = val
+      }
+    })
+    return obj
+  }
+
+
+  //
+  function every(ary, predicate) {
+    ary.forEach(predicate())
+  }
+</script>

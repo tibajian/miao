@@ -1,0 +1,143 @@
+2222
+<script>
+  function arrayTolist(ary) {//把链表放新数组
+    if (ary.length == 0)
+      return null
+    var nodes = []
+    for (var i = 0; i < ary.length; i++) {
+      var  node = { //创建链表节点，
+        val: ary[i],
+        next:null,
+      }
+      nodes.push(node) //把对象节点Push
+    }
+
+    for (var i = 0; i < ary.length - 1; i++) {
+      var currNode = nodes[i]//指向节点内容
+      currNode.next = nodes[i + 1]//串联地址
+    }
+
+    return nodes[0]
+  }
+
+  function arrayTolist2(ary) {//把链表节点对象藏链表
+    var prevNode = {
+      val: 0,
+      next: null,
+    }
+    var dummyNode = prevNode
+    for (var i = 0; i < ary.length; i++) {
+      var node = {
+        val: ary[i],
+        next: null,
+      }
+      prevNode.next = node
+      prevNode = node
+    }return dummyNode.next
+  }
+
+  function arrayTolistR(ary) {
+    if (ary.length == 0)
+      return null
+    var list = {
+      val: ary[0],
+      next: arrayTolistR(ary.slice(1)),
+    }
+    return list
+  }
+
+  function listToarray(list) {//链表转数组
+    var ary = []
+    while (list) {
+      ary.push(list.val)
+      list = list.next
+    }
+    return ary
+  }
+
+  function listToarrayR(list) {//递归
+    if (!list)
+      return []
+    var tail = list.next
+    var ary = listToarrayR(tail)
+    ary.unshift(list.val)
+    return ary
+  }
+
+  function prepend(list, val) {//链表头加加
+    var node = {
+      val: val,
+      next: list,
+    }
+    return node
+  }
+
+  function append(list, val) {//表尾加加
+    var node = {
+      val: val,
+      next: null,
+    }
+    if (!list) {
+      return undefined
+    }
+    var a = list
+    while (list.next) {
+      list = list.next
+    }list.next = node
+    return a
+  }
+
+  function appendR(list, val) {
+    if (!list) { //链表为空
+      var node = {
+        val: val,
+        next: null,
+      }
+      return node
+    }
+    if (!list.next) {//链表最后一个为空
+      var node = {
+        val: val,
+        next: null,
+      }
+      list.next = node
+      return list //这里的list仅仅增加了node,并非list最后一个节点
+    }
+    return appendR(list.next, val)
+  }
+  function arrayTilist3(ary) {//利用链表头加函数方法
+    var list = null
+    for (var i = ary.length - 1; i >= 0; i--) {
+      list = prepend(list , ary[i])//
+    }
+    return list
+  }
+
+  function nth(list, n) {
+    if (n < 0) {
+      return undefined
+    }
+    var a = 0
+    while (n + 1) {
+      if (list == undefined) {
+        return undefined
+      }
+      if (list.val) {
+        if (a == n)
+          return list.val
+        list = list.next
+        a++
+      }
+    }
+  }
+
+  function nthR(list, n) {//玩递归要知道里面的传值到底意味什么
+    if (!list || n < 0) {
+      return undefined
+    }
+    if (n == 0) {
+      return list.val
+    }
+    return nthR(list.next, n - 1)
+  }
+</script>

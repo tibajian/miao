@@ -1,0 +1,226 @@
+<script>
+  function indexOf(array, target, fromIndex = 0) {//第三个参数设置默认参数0
+    for (var i = fromIndex; i < array.length; i++) {
+      if (array[i] === target) {
+        return i
+      }
+    }return -1
+  }
+
+  function lastIndexOf(array, target, fromIndex = array.length - 1) {
+    for (var i = fromIndex; i >= 0; i--) {
+      if (array === target) {
+        return i
+      }
+    }return -1
+  }
+
+  function slice(array, start = 0, end = array.length) {
+    var ary = []
+    for (var i = start; i < end; i++) {
+      ary.push(array[i])
+    }
+    return ary
+  }
+
+  function concat(array1, items) {
+    var result = []
+    for (var i = 0; i < array1.length - 1; i++) {
+      result.push(array1[i])
+    }
+    if (typeof items == 'number') {//Array.isArray()
+      result.push(items)
+    }else {
+      for (var i = 0; i < items.length - 1; i++) {
+      result.push(items[i])
+    }
+    }
+    return result
+  }
+
+  function remove(array, index) {
+    return array.slice(0, index).concat((array.slice(index + 1)))
+  }
+
+  function at(array, index) {
+    return index >= 0 ? array[index] : array[array.length + index]
+  }
+
+  function copyWithin(array, target, start = 0, end = array.length) {
+    if (target > start) {//遍历
+      for (var i = end - 1; i <= start; i--) {
+        array[target + start - end] = array[i]
+        target--
+      }
+    }
+    if (target < start) {
+      for (var i = start; i < end; i++) {
+        array[target] = array[start]
+        target++
+      }
+    }
+    return array
+  }
+
+  function fill(array, target, start = 0, end = array.length) {
+    for (var i = start; i < end; i++) {
+      array[i] = target
+    }
+    return array
+  }
+
+  function flatR(array, depth = 1) {
+    if (!depth) {
+      return array.slice()
+    }
+    var result = []
+    for (var i = 0; i < array.length; i++) {
+      var item = array[i]
+      if (Array.isArray(item)) {//
+        var Narray =  flat(item, depth - 1)
+        for (var j = 0; j < Narray.length; j++) {
+          result.push(Narray[j])
+        }
+      }else {
+        result.push(item)
+      }
+    }
+    return result
+  }
+
+  function flat(array, depth = 1) {
+    for (var k = 0; k < depth; k++) {
+      var result = []
+      if (!array[1])
+        break
+      for (var i = 0; i < array.length; i++) {
+        var item = array[i]
+        if (Array.isArray(item)) {//
+          for (var j = 0; j < item.length; j++) {
+            result.push(item[j])
+          }
+        }else {
+          result.push(item)
+        }
+      }
+      array = result//
+    }
+    return result
+  }
+
+  function includes(array, value) {
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] === value) {
+        return true
+      }else if (!array[i] == array[i] && !value == value) {
+        return true
+      }
+    }return false
+  }
+
+  function isPlainObject(i) {
+    return !Array.isArray(i) && typeof i === 'object' && i !== null
+  }
+
+  function reverse(array) {
+    var a = array.slice()
+    for (var i = 0; i < array.length; i++) {
+      array[i] = a[array.length - i - 1]
+    }return array
+  }
+
+  function slice(str, start = 0, end = str.length) {
+    var ch = ''
+    for (var j = start; j < end; j++) {
+      ch += str[j]
+    }
+    return ch
+  }
+
+
+  //平方取随机数
+  var a = 353632
+  function random() {
+    var b = String(a * a)
+    a = Number(b.slice(4, 12))//取8位
+    return a//var a 的值改变了
+  }
+
+
+
+// 如果数组中的每个元素传给predicate后都返回真，则every返回真，否则返回假
+  function every(ary, predicate) {
+    for (var i = 0; i < ary.length; i++) {
+      if (!predicate(ary[i], i, ary)) {
+        return false
+      }
+    }
+    return true
+  }
+
+
+  function every(ary, predicate) {
+    return ary.reduce((sum, item) => {
+      return sum && predicate(item)
+    }, true)
+  }
+
+
+  every(ary, f)
+
+  true && f(ary[0]) && f(ary[1]) && f(ary[2]) ....   /// 累与     累加
+
+  false || f(ary[0]) || f(ary[1]) || f(ary[2]) ....   /// 累或
+
+
+
+  ary[0] + ary[1] + ary[2] + ...
+
+  ary.reduce((sum, item) => {
+    return sum && f(item)
+  }, true)
+
+  function some(ary, predicate) {
+    return ary.reduce((sum, item) => {
+      return sum || predicate(item)
+    }, false)
+  }
+
+  function some(ary, predicate) {
+    for (var i = 0; i < ary.length; i++) {
+      if (predicate(ary[i], i, ary)) {
+        return true
+      }
+    }
+    return false
+  }
+
+  function every(ary, predicate) {
+    return !some(ary, it => !predicate(it))
+  }
+
+  function some(ary, predicate) {
+    return !every(ary, it => !predicate(it))
+  }
+
+  function some(ary, predicate) {
+    return !every(ary, (it, i, ary) => !predicate(it, i, ary))
+  }
+  
+  function find(ary, predicate) {
+    for (var i = 0; i < ary.length; i++) {
+      if (predicate(ary[i], i, ary)) {
+        return ary[i]
+      }
+    }
+  }
+
+    function bind(f, ...fixedArgs) {
+      return function (...args) {
+        return f(...fixedArgs, ...args)
+      }
+    }
+
+
+
+</script>
